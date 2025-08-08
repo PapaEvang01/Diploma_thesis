@@ -1,4 +1,3 @@
-# **Ανάπτυξη Αλγορίθμου Πρόβλεψης Τροχιάς Οχημάτων με Τεχνικές Βαθιάς Μάθησης**  
 # **Development of a Vehicle Trajectory Prediction Algorithm using Deep Learning Techniques**  
 
 This repository contains the full implementation of a diploma thesis project focused on **real-time vehicle trajectory prediction** in the [CARLA](https://carla.org) autonomous driving simulator.  
