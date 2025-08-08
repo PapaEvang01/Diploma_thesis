@@ -1,5 +1,4 @@
-# Development of a Vehicle Trajectory Prediction Algorithm using Deep Learning Techniques  
-## Ανάπτυξη Αλγορίθμου Πρόβλεψης Τροχιάς Οχημάτων με Τεχνικές Βαθιάς Μάθησης
+# Development of a Vehicle Trajectory Prediction Algorithm using Deep Learning Techniques  (Ανάπτυξη Αλγορίθμου Πρόβλεψης Τροχιάς Οχημάτων με Τεχνικές Βαθιάς Μάθησης)
 
 
 **Real-time vehicle trajectory prediction in the CARLA simulator using classical kinematic equations and deep learning models.**  
