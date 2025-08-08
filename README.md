@@ -1,75 +1,221 @@
-# Real-Time Vehicle Trajectory Prediction in CARLA  
-### Diploma Thesis Project by Evangelos Papaioannou
+Ανάπτυξη Αλγορίθμου Πρόβλεψης Τροχιάς Οχημάτων με Τεχνικές Βαθιάς Μάθησης
+Development of a Vehicle Trajectory Prediction Algorithm using Deep Learning Techniques
+Real-time vehicle trajectory prediction in the CARLA simulator using classical kinematic equations and deep learning models.
+This project forms the practical and experimental core of my diploma thesis, aiming to compare physics-based and deep learning-based methods for forecasting vehicle motion in a simulated urban environment.
 
-This repository presents the full implementation of a diploma thesis focused on **real-time trajectory prediction of vehicles** in the [CARLA](https://carla.org) autonomous driving simulator. The project investigates and compares two fundamentally different approaches to forecasting future vehicle motion:
+📌 Introduction & Motivation
+Accurate vehicle trajectory prediction is a crucial component in autonomous driving and intelligent transportation systems (ITS). It enables:
 
-- **Physics-Based Prediction** using classical kinematic equations
-- **Deep Learning-Based Prediction** using the CRAT-Pred neural network model
+Collision avoidance and path planning.
 
----
+Cooperative maneuvers between autonomous and human-driven vehicles.
 
-## 🎓 Project Context
+Traffic flow optimization and safety enhancement.
 
-This work was carried out in the context of the diploma thesis titled:
+However, predicting motion in dynamic, multi-agent environments presents challenges such as:
 
-**Ανάπτυξη Αλγορίθμου Πρόβλεψης Τροχιάς Οχημάτων με Τεχνικές Βαθιάς Μάθησης**  
-(*Development of a Vehicle Trajectory Prediction Algorithm using Deep Learning Techniques*)
+Complex interactions between road users.
 
-The goal was to design, implement, and evaluate a real-time system that predicts how a vehicle will move in a simulated environment, and to **compare the performance** of traditional kinematics against advanced machine learning models trained on real-world traffic data.
+Uncertainty in driver behavior.
 
----
+Limited or noisy perception data.
 
-## 📁 Repository Overview
+This project addresses these challenges by evaluating two contrasting approaches within a controlled simulation environment.
 
-The repository is organized into two main subprojects:
+📖 Project Overview
+The project compares:
 
-### 1. `carla-kinematics-trajectory-prediction/`
-Implements a **classical approach** based on velocity, yaw, and time. The method uses CARLA's API to track a Tesla Model 3 in real time, estimate its position 1 second into the future, and compare the predictions against ground truth positions.
+Deep Learning Approach – Using the CRAT-Pred neural network model, trained on the Argoverse Motion Forecasting v1.1 dataset, capable of multi-agent, multi-modal trajectory prediction.
 
-- Predictions are visualized inside CARLA.
-- Evaluation metrics (ADE and Miss Rate) are computed.
-- Results are saved to CSV and plotted for inspection.
+Classical Kinematics Approach – Applying deterministic motion equations based on velocity, yaw, and elapsed time to estimate future positions.
 
-### 2. `crat-pred-trajectories-in-carla/`
-Integrates the **CRAT-Pred deep learning model** with CARLA for **multi-agent, multi-modal trajectory prediction**. It uses a trained neural network (with LSTM encoders, graph neural networks, and attention mechanisms) to infer complex motion patterns in urban environments.
+All experiments were conducted in the CARLA Simulator, an open-source platform for autonomous driving research, allowing reproducible and high-fidelity urban traffic scenarios.
 
-- Automatically spawns an ego vehicle and NPCs.
-- Tracks vehicle displacements and normalizes them.
-- Feeds data into CRAT-Pred to predict 60 future positions over 3 seconds.
-- Selects the most accurate mode (based on FDE).
-- Inversely rotates and visualizes predictions in CARLA.
-- Logs per-timestep ADE and Miss Rate in real time.
+⚙️ System Architecture / Workflow
+Pipeline:
 
----
+Data Collection from CARLA – Track ego and NPC vehicles in real-time.
 
-## 🔬 Evaluation
+Preprocessing – Compute displacements, normalize orientation via rotation matrices.
 
-Both systems were evaluated under real-time simulation conditions using:
+Prediction
 
-- **Average Displacement Error (ADE)**  
-- **Final Displacement Error (FDE)** *(for CRAT-Pred)*
-- **Miss Rate (MR)**
+CRAT-Pred Model – LSTM encoder + Graph Neural Network + Multi-Head Attention + Residual Decoder for 60 future points (3s horizon).
 
-Detailed performance comparison was performed across different traffic scenarios, and the results were exported for analysis and visual presentation.
+Kinematics – Predict positions using classical motion equations.
 
----
+Post-Processing & Visualization – Inverse rotation, CARLA in-simulator rendering, and matplotlib plotting.
 
-## 🧠 Key Contributions
+Evaluation – Calculate metrics:
 
-- Full real-time integration with the CARLA simulator.
-- Implementation of trajectory forecasting via classical physics and deep learning.
-- CRAT-Pred architecture loading, inference, and post-processing pipeline.
-- Per-second logging of predictions vs ground truth.
-- Visualization tools for plotting trajectories and evaluating accuracy.
-- Clean and modular code organized into reusable components.
+ADE (Average Displacement Error)
 
----
+FDE (Final Displacement Error – CRAT-Pred only)
 
-## 👨‍💻 Author
+MR (Miss Rate)
 
-**Evangelos Papaioannou**  
-Diploma Thesis, 2025  
-Department of Electrical and Computer Engineering  
-Democritus University of Thrace
+🌟 Main Features
+Real-time CARLA simulation with ego vehicle (Tesla Model 3) and multiple NPCs.
 
-For questions, feel free to contact me via GitHub or LinkedIn.
+Multi-modal trajectory prediction using CRAT-Pred.
+
+Physics-based prediction using classical kinematics.
+
+Evaluation & Logging:
+
+Per-second metric calculation.
+
+CSV logging of predictions vs ground truth.
+
+Automatic trajectory plots.
+
+Scalable framework for adding new prediction models.
+
+🛠 Technical Stack
+Languages: Python
+
+Frameworks: PyTorch, PyTorch Lightning
+
+Libraries: CARLA API, NumPy, Pandas, Matplotlib
+
+Tools: CARLA Simulator
+
+Dataset: Argoverse Motion Forecasting v1.1 (for CRAT-Pred training)
+
+🔍 Methodology
+1. CRAT-Pred Deep Learning Approach
+Architecture:
+
+LSTM Encoder for temporal patterns.
+
+Graph Neural Network for agent interactions.
+
+Multi-Head Self-Attention for spatial-temporal dependencies.
+
+Residual Decoder for generating predictions.
+
+Prediction:
+
+Outputs 60 (x, y) coordinates for each mode.
+
+Selects most likely mode using Final Displacement Error.
+
+Strengths:
+
+Captures complex behaviors.
+
+Handles multiple agents simultaneously.
+
+Limitations:
+
+Requires large training datasets.
+
+Sensitive to domain shifts.
+
+2. Kinematics-Based Approach
+Equations:
+
+𝑥
+𝑡
++
+Δ
+𝑡
+=
+𝑥
+𝑡
++
+𝑣
+⋅
+cos
+⁡
+(
+𝜓
+)
+⋅
+Δ
+𝑡
+x 
+t+Δt
+​
+ =x 
+t
+​
+ +v⋅cos(ψ)⋅Δt
+
+𝑦
+𝑡
++
+Δ
+𝑡
+=
+𝑦
+𝑡
++
+𝑣
+⋅
+sin
+⁡
+(
+𝜓
+)
+⋅
+Δ
+𝑡
+y 
+t+Δt
+​
+ =y 
+t
+​
+ +v⋅sin(ψ)⋅Δt
+
+Assumptions:
+
+Constant velocity and yaw over the prediction horizon.
+
+Strengths:
+
+Fast and computationally lightweight.
+
+Limitations:
+
+Cannot adapt to sudden changes in trajectory.
+
+📊 Evaluation Results
+Method	Scenario	ADE ↓	FDE ↓	MR ↓
+Kinematics	Urban 1	1.52	–	0.12
+CRAT-Pred (Deep Learning)	Urban 1	0.89	1.21	0.05
+Kinematics	Urban 2	1.73	–	0.18
+CRAT-Pred	Urban 2	1.05	1.37	0.07
+
+(↓ lower is better)
+
+Example Visualization
+
+📌 Conclusion & Future Work
+Findings:
+
+CRAT-Pred outperformed kinematics in non-linear and interactive traffic scenarios.
+
+Kinematics remained competitive in simple, straight-path motion.
+
+Deep learning handled uncertainty and multi-modal futures better.
+
+Future Directions:
+
+Integrating map-based contextual information.
+
+Testing under adverse weather and sensor noise conditions.
+
+Extending to pedestrian and cyclist trajectory prediction.
+
+🙏 Acknowledgements
+CARLA Simulator team for providing the simulation platform.
+
+CRAT-Pred authors for their publicly available model and code.
+
+Argoverse dataset creators for high-quality motion forecasting data.
+
+📜 License
+This project is released under the MIT License.
+
