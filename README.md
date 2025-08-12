@@ -95,8 +95,8 @@ v_y = v * sin(psi)
 Where:  
 - \(x_t, y_t\) = current position (m)  
 - \(v\) = speed magnitude (m/s)  
-- \(\psi\) = yaw/heading angle (radians)  
-- \(\Delta t\) = prediction time step (s)  
+- \(psi\) = yaw/heading angle (radians)  
+- \(Delta t\) = prediction time step (s)  
 
 - **Strengths**:  
   - Extremely fast and lightweight.  
