@@ -73,6 +73,7 @@ It enables proactive decision-making for path planning, collision avoidance, and
 - **Equations**:  
 
 **Position update:**
+
 \[
 x_{t+Dt} = x_t + v * cos(\psi) * Dt
 \]
@@ -82,6 +83,7 @@ y_{t+Dt} = y_t + v * sin(\psi) * Dt
 \]
 
 **Velocity components:**
+
 \[
 v_x = v * cos(\psi)
 \]
