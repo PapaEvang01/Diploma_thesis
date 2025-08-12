@@ -75,21 +75,21 @@ It enables proactive decision-making for path planning, collision avoidance, and
 **Position update:**
 
 \[
-x_{t+Dt} = x_t + v * cos(\psi) * Dt
+x_{t+Dt} = x_t + v * cos(psi) * Dt
 \]
 
 \[
-y_{t+Dt} = y_t + v * sin(\psi) * Dt
+y_{t+Dt} = y_t + v * sin(psi) * Dt
 \]
 
 **Velocity components:**
 
 \[
-v_x = v * cos(\psi)
+v_x = v * cos(psi)
 \]
 
 \[
-v_y = v * sin(\psi)
+v_y = v * sin(psi)
 \]
 
 Where:  
