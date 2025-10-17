@@ -28,8 +28,8 @@ Scenarios = 3 (Left Turn, Right Turn, Straight Line)
    - MR (per second): 0.00 %
    - Files:
        • Image: results_kinematics/1_leftturn/carla_view.png
-       • Plot: results/kinematics/scenario1_leftturn/gt_vs_pred.png
-       • CSV: results/kinematics/scenario1_leftturn/trajectories.csv
+       • Plot: results/kinematics/1_leftturn/gt_vs_pred.png
+       • CSV: results/kinematics/1_leftturn/trajectories.csv
 
 2) Scenario_2_RightTurn
    - Description: Vehicle performs a right-turn trajectory under similar conditions.
