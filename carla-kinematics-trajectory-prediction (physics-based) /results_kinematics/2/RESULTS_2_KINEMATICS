@@ -1,1 +1,21 @@
+# Scenario 2 – Right Turn (Kinematics Method)
+# Vehicle performs a right-turn trajectory under similar conditions.
+
+Duration: 12 s
+minADE (per timestep): 1.3447 m
+MR (per timestep): 43.70 %
+minADE (per second): 0.7142 m
+MR (per second): 0.00 %
+
+Comments:
+- The right-turn curve produces slightly higher error than the left turn.
+- The model underestimates rotational dynamics, causing local deviation near apex.
+- Real-time performance remains consistent.
+
+Files:
+• Image: results_kinematics/scenario2_rightturn/carla_view.png
+• Plot: results_kinematics/scenario2_rightturn/gt_vs_pred.png
+• CSV: results_kinematics/scenario2_rightturn/trajectories.csv
+
+[END]
 
