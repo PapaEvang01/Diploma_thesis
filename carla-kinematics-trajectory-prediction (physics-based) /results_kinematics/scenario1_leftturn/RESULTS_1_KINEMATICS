@@ -13,9 +13,9 @@ Comments:
 - Overall accuracy acceptable for simple real-time kinematic prediction.
 
 Files:
-• Image: results_kinematics/1_leftturn/carla_view.png
-• Plot: results_kinematics/1_leftturn/gt_vs_pred.png
-• CSV: results_kinematics/1_leftturn/trajectories.csv
+• Image: results_kinematics/scenario1_leftturn/carla_view.png
+• Plot: results_kinematics/scenario1_leftturn/gt_vs_pred.png
+• CSV: results_kinematics/scenario1_leftturn/trajectories.csv
 
 [END]
 
