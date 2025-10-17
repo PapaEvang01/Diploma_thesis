@@ -1,1 +1,21 @@
+# Scenario 2 – Right Turn (CRAT-Pred Deep Learning)
+# Vehicle moves straight and performs a right turn.
+
+Duration: 12 s
+ADE (per timestep): 0.01562 m
+MR (per timestep): 0.00 %
+ADE (per second): 0.02111 m
+MR (per second): 0.00 %
+
+Comments:
+- The model maintains excellent trajectory prediction even during turning.
+- Attention and GNN components capture spatial dependencies effectively.
+- Zero miss rate demonstrates strong mode selection and accurate curvature prediction.
+
+Files:
+• Image: results_dl/scenario2_rightturn/carla_view.png
+• Plot: results_dl/scenario2_rightturn/gt_vs_pred.png
+• CSV: results_dl/scenario2_rightturn/trajectories.csv
+
+[END]
 
