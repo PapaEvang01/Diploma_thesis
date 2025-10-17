@@ -18,16 +18,31 @@ using the Average Displacement Error (ADE) and Miss Rate (MR). A plot of the ful
 comparison is also generated for visual inspection.
 
 --------------------------------------------------
+
 Project Structure
 --------------------------------------------------
-carla_kinematics_project/
+carla-kinematics-trajectory-prediction/
 ├── src/
-│   ├── carla_kinematics.py     # Main prediction script
-│   ├── requirements.txt        # Python dependencies
-│   └── README.txt              
-├── results/
-│   ├── metrics.csv             # Logs of predicted vs actual positions (auto-generated)
-│   └── trajectory_plot.png     # Visual plot of GT vs predicted positions (auto-generated)
+│   └── carla_kinematics.py                # Main real-time trajectory prediction script
+├── results_kinematics/
+│   ├── scenario1_leftturn/
+│   │   ├── carla_view.png                 # CARLA visualization image
+│   │   ├── description_scenario1.txt      # Scenario 1 description and results
+│   │   ├── gt_vs_pred.png                 # Plot comparing predicted vs actual positions
+│   │   └── trajectories_1.csv             # Detailed trajectory data
+│   ├── scenario2_rightturn/
+│   │   ├── carla_view.png
+│   │   ├── description_scenario2.txt
+│   │   ├── gt_vs_pred.png
+│   │   └── trajectories.csv
+│   ├── scenario3_straightline/
+│   │   ├── carla_view.png
+│   │   ├── description_scenario3.txt
+│   │   ├── gt_vs_pred.png
+│   │   └── trajectories.csv
+│   └── results_kinematics_description.txt # Global summary of all scenarios
+├── requirements.txt                       # Python dependencies
+└── README.txt                             # Project documentation
 
 --------------------------------------------------
 Simulation Scenarios and Results
@@ -42,10 +57,10 @@ Three simulation scenarios were executed in the CARLA environment to evaluate th
    - minADE (per second): 0.6599 m
    - MR (per second): 0.00 %
    - Files:
-       • Image: results/kinematics/scenario1_leftturn/carla_view.png
-       • Plot: results/kinematics/scenario1_leftturn/gt_vs_pred.png
-       • CSV: results/kinematics/scenario1_leftturn/trajectories.csv
-       • Summary: results_kinematics_scenario1.txt
+       • Image: results_kinematics/scenario1_leftturn/carla_view.png
+       • Plot: results_kinematics/scenario1_leftturn/gt_vs_pred.png
+       • CSV: results_kinematics/scenario1_leftturn/trajectories.csv
+       • Summary: description_scenario1.txt
 
 2) Scenario 2 – Right Turn
    - Description: Vehicle performs a right-turn trajectory under similar conditions.
@@ -55,10 +70,10 @@ Three simulation scenarios were executed in the CARLA environment to evaluate th
    - minADE (per second): 0.7142 m
    - MR (per second): 0.00 %
    - Files:
-       • Image: results/kinematics/scenario2_rightturn/carla_view.png
-       • Plot: results/kinematics/scenario2_rightturn/gt_vs_pred.png
-       • CSV: results/kinematics/scenario2_rightturn/trajectories.csv
-       • Summary: results_kinematics_scenario2.txt
+       • Image: results_kinematics/scenario2_rightturn/carla_view.png
+       • Plot: results_kinematics/scenario2_rightturn/gt_vs_pred.png
+       • CSV: results_kinematics/scenario2_rightturn/trajectories.csv
+       • Summary: description_scenario2.txt
 
 3) Scenario 3 – Straight Line
    - Description: Vehicle moves along a straight road section with constant velocity.
@@ -68,10 +83,10 @@ Three simulation scenarios were executed in the CARLA environment to evaluate th
    - minADE (per second): 0.5970 m
    - MR (per second): 0.00 %
    - Files:
-       • Image: results/kinematics/scenario3_straightline/carla_view.png
-       • Plot: results/kinematics/scenario3_straightline/gt_vs_pred.png
-       • CSV: results/kinematics/scenario3_straightline/trajectories.csv
-       • Summary: results_kinematics_scenario3.txt
+       • Image: results_kinematics/scenario3_straightline/carla_view.png
+       • Plot: results_kinematics/scenario3_straightline/gt_vs_pred.png
+       • CSV: results_kinematics/scenario3_straightline/trajectories.csv
+       • Summary: description_scenario3.txt
 
 --------------------------------------------------
 Output & Logging
@@ -82,7 +97,7 @@ Each scenario generates the following outputs:
 - One CSV file with detailed trajectory data and computed ADE/MR values per timestep and per second.
 - One text summary file (.txt) describing the key results and observations for that scenario.
 
-All outputs are automatically stored in the corresponding results/kinematics/scenarioX/ folder.
+All outputs are automatically stored in the corresponding results_kinematics/scenarioX/ folder.
 
 --------------------------------------------------
 Author & Context
