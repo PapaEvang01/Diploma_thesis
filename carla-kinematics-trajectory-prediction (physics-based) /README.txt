@@ -5,8 +5,9 @@ This project implements real-time prediction of vehicle motion using classical k
 within the CARLA simulator environment. It was developed as part of a diploma thesis comparing
 physics-based methods with deep learning-based trajectory forecasting.
 
+--------------------------------------------------
 Overview
---------
+--------------------------------------------------
 The system connects to a live CARLA simulation, spawns a Tesla Model 3 as the ego vehicle,
 and begins trajectory prediction after movement starts. Using the current velocity and yaw angle,
 it estimates the vehicle's future position 1 second ahead (at 20Hz resolution). Predictions are 
@@ -16,8 +17,9 @@ Predicted vs ground truth positions are logged to CSV, and the overall accuracy 
 using the Average Displacement Error (ADE) and Miss Rate (MR). A plot of the full trajectory 
 comparison is also generated for visual inspection.
 
+--------------------------------------------------
 Project Structure
------------------
+--------------------------------------------------
 carla_kinematics_project/
 ├── src/
 │   ├── carla_kinematics.py     # Main prediction script
@@ -27,30 +29,75 @@ carla_kinematics_project/
 │   ├── metrics.csv             # Logs of predicted vs actual positions (auto-generated)
 │   └── trajectory_plot.png     # Visual plot of GT vs predicted positions (auto-generated)
 
-Running the Simulation
-----------------------
-1. Ensure the CARLA simulator is running (localhost:2000).
-2. Open a terminal and navigate to the `src/` directory.
-3. Install required packages:
+--------------------------------------------------
+Simulation Scenarios and Results
+--------------------------------------------------
+Three simulation scenarios were executed in the CARLA environment to evaluate the kinematic model:
 
-       pip install -r requirements.txt
+1) Scenario 1 – Left Turn
+   - Description: Vehicle follows a left-turn curve at moderate speed.
+   - Duration: 18 s
+   - minADE (per timestep): 1.2834 m
+   - MR (per timestep): 40.00 %
+   - minADE (per second): 0.6599 m
+   - MR (per second): 0.00 %
+   - Files:
+       • Image: results/kinematics/scenario1_leftturn/carla_view.png
+       • Plot: results/kinematics/scenario1_leftturn/gt_vs_pred.png
+       • CSV: results/kinematics/scenario1_leftturn/trajectories.csv
+       • Summary: results_kinematics_scenario1.txt
 
-4. Launch the script:
+2) Scenario 2 – Right Turn
+   - Description: Vehicle performs a right-turn trajectory under similar conditions.
+   - Duration: 12 s
+   - minADE (per timestep): 1.3447 m
+   - MR (per timestep): 43.70 %
+   - minADE (per second): 0.7142 m
+   - MR (per second): 0.00 %
+   - Files:
+       • Image: results/kinematics/scenario2_rightturn/carla_view.png
+       • Plot: results/kinematics/scenario2_rightturn/gt_vs_pred.png
+       • CSV: results/kinematics/scenario2_rightturn/trajectories.csv
+       • Summary: results_kinematics_scenario2.txt
 
-       python carla_kinematics.py
+3) Scenario 3 – Straight Line
+   - Description: Vehicle moves along a straight road section with constant velocity.
+   - Duration: 12 s
+   - minADE (per timestep): 1.6724 m
+   - MR (per timestep): 39.64 %
+   - minADE (per second): 0.5970 m
+   - MR (per second): 0.00 %
+   - Files:
+       • Image: results/kinematics/scenario3_straightline/carla_view.png
+       • Plot: results/kinematics/scenario3_straightline/gt_vs_pred.png
+       • CSV: results/kinematics/scenario3_straightline/trajectories.csv
+       • Summary: results_kinematics_scenario3.txt
 
+--------------------------------------------------
 Output & Logging
-----------------
-- Predictions are logged every second (20 steps per second).
-- `metrics.csv` contains: Time (s), Timestep, GT_X, GT_Y, Pred_X, Pred_Y, ADE, MissRate
-- `trajectory_plot.png` shows the complete path comparison.
+--------------------------------------------------
+Each scenario generates the following outputs:
+- One CARLA image showing predicted and actual trajectories.
+- One plot comparing predicted vs ground-truth positions.
+- One CSV file with detailed trajectory data and computed ADE/MR values per timestep and per second.
+- One text summary file (.txt) describing the key results and observations for that scenario.
 
+All outputs are automatically stored in the corresponding results/kinematics/scenarioX/ folder.
+
+--------------------------------------------------
 Author & Context
-----------------
+--------------------------------------------------
 This project is part of the diploma thesis:
 
-**Ανάπτυξη Αλγορίθμου Πρόβλεψης Τροχιάς Οχημάτων με Τεχνικές Βαθιάς Μάθησης**  
-(*Development of a Vehicle Trajectory Prediction Algorithm using Deep Learning Techniques*)
+"Development of a Vehicle Trajectory Prediction Algorithm using Deep Learning Techniques"
+by Evangelos Papaioannou, Democritus University of Thrace (D.U.Th.)
 
-**Author**: Evangelos Papaioannou
+The kinematic prediction method serves as a physics-based baseline, relying solely on fundamental motion equations
+without any learning components. It demonstrates reliable short-term predictions for simple, low-dynamic trajectories,
+while providing a quantitative benchmark for evaluating advanced deep learning models such as CRAT-Pred.
 
+--------------------------------------------------
+License
+--------------------------------------------------
+This project is distributed for academic and research purposes only.
+For further use or publication, please cite this diploma thesis.
