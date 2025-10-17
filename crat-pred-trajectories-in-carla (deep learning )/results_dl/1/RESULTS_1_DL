@@ -1,1 +1,21 @@
+# Scenario 1 – Straight (CRAT-Pred Deep Learning)
+# Vehicle moves straight with minor lane maneuvers.
+
+Duration: 18 s
+ADE (per timestep): 0.01394 m
+MR (per timestep): 0.00 %
+ADE (per second): 0.01824 m
+MR (per second): 0.00 %
+
+Comments:
+- The model predicts the vehicle trajectory with extremely high precision.
+- The straight path allows consistent prediction with negligible spatial error.
+- Ideal alignment between ground truth and predicted points throughout the simulation.
+
+Files:
+• Image: results_dl/scenario1_straight/carla_view.png
+• Plot: results_dl/scenario1_straight/gt_vs_pred.png
+• CSV: results_dl/scenario1_straight/trajectories.csv
+
+[END]
 
