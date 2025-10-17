@@ -1,1 +1,21 @@
+# Scenario 3 – Straight Line (Kinematics Method)
+# Vehicle moves along a straight section with nearly constant velocity.
+
+Duration: 12 s
+minADE (per timestep): 1.6724 m
+MR (per timestep): 39.64 %
+minADE (per second): 0.5970 m
+MR (per second): 0.00 %
+
+Comments:
+- Straight motion yields the lowest average displacement error per second.
+- Small oscillations appear due to velocity discretization at constant speed.
+- Demonstrates robustness of the kinematic method in linear trajectories.
+
+Files:
+• Image: results_kinematics/scenario3_straightline/carla_view.png
+• Plot: results_kinematics/scenario3_straightline/gt_vs_pred.png
+• CSV: results_kinematics/scenario3_straightline/trajectories.csv
+
+[END]
 
