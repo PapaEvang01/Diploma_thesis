@@ -1,1 +1,21 @@
+# Scenario 1 – Left Turn (Kinematics Method)
+# Vehicle follows a left-turn curve at moderate speed.
+
+Duration: 18 s
+minADE (per timestep): 1.2834 m
+MR (per timestep): 40.00 %
+minADE (per second): 0.6599 m
+MR (per second): 0.00 %
+
+Comments:
+- The vehicle maintains stable motion but slight drift occurs in the curved section.
+- Prediction error increases near the turn due to limited curvature modeling.
+- Overall accuracy acceptable for simple real-time kinematic prediction.
+
+Files:
+• Image: results_kinematics/scenario1_leftturn/carla_view.png
+• Plot: results_kinematics/scenario1_leftturn/gt_vs_pred.png
+• CSV: results_kinematics/scenario1_leftturn/trajectories.csv
+
+[END]
 
