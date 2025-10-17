@@ -114,12 +114,53 @@ Where:
 
 ---
 
-## **6. Results Summary**  
-The models were tested in multiple CARLA driving scenarios (straight roads, curves, multi-agent traffic).  
+## **6. Results Summary**
 
-**Findings:**  
-- CRAT-Pred outperformed in urban and interaction-heavy situations.  
-- Kinematics excelled in straight, constant-speed motion.  
+The evaluation compared two fundamentally different trajectory prediction methods in the CARLA simulator:
+1. **Kinematic Method** – a physics-based baseline using motion equations.
+2. **CRAT-Pred** – a deep learning model combining LSTM, GNN, and Attention mechanisms.
+
+Each model was tested across three driving scenarios representing typical motion behaviors in autonomous driving:  
+**Straight Path**, **Right Turn**, and **Left Turn**.
+
+---
+
+### **Quantitative Results**
+
+| **Scenario** | **Method** | **Duration (s)** | **ADE (per timestep)** | **ADE (per second)** | **MR (per timestep)** | **MR (per second)** |
+|---------------|-------------|------------------|-------------------------|----------------------|-----------------------|---------------------|
+| Straight Line | Kinematics | 12 | **1.6724 m** | **0.5970 m** | 39.64 % | 0.00 % |
+| Straight Line | CRAT-Pred | 18 | **0.01394 m** | **0.01824 m** | 0.00 % | 0.00 % |
+| Right Turn | Kinematics | 12 | **1.3447 m** | **0.7142 m** | 43.70 % | 0.00 % |
+| Right Turn | CRAT-Pred | 12 | **0.01562 m** | **0.02111 m** | 0.00 % | 0.00 % |
+| Left Turn | Kinematics | 18 | **1.2834 m** | **0.6599 m** | 40.00 % | 0.00 % |
+| Left Turn | CRAT-Pred | 12 | **0.01731 m** | **0.02380 m** | 0.00 % | 0.00 % |
+
+---
+
+### **Analysis and Discussion**
+
+- The **Kinematic Method** demonstrated stable and computationally efficient performance, particularly in straight-line scenarios.  
+  However, it exhibited growing positional drift in curved trajectories due to the lack of higher-order motion modeling and interaction awareness.
+
+- The **CRAT-Pred Deep Learning Model** achieved **exceptionally low prediction errors** across all cases, maintaining near-zero ADE and MR even in challenging curved paths.  
+  Its combination of temporal encoding, spatial graph reasoning, and attention-based feature fusion allows it to generalize effectively to dynamic, multi-agent environments.
+
+- The results confirm that **data-driven models significantly outperform deterministic baselines** when environmental complexity increases, though they require greater computational resources and pre-training.
+
+---
+
+### **Conclusions and Future Work**
+
+- The **Kinematic Method** remains an interpretable and fast baseline, ideal for lightweight applications or embedded systems with limited compute.  
+- The **CRAT-Pred model** serves as a powerful benchmark for accurate, multi-modal trajectory forecasting in realistic driving simulations.
+
+**Future Directions:**
+- Develop **hybrid models** that fuse the simplicity of kinematic motion equations with the adaptability of deep learning corrections.  
+- Extend CRAT-Pred evaluation to **real-world datasets** (e.g., Argoverse 2, nuScenes) and multi-agent planning scenarios.  
+- Integrate prediction outputs into **control and decision-making loops** within CARLA for closed-loop autonomous driving tests.
+
+---
 
 ---
 
