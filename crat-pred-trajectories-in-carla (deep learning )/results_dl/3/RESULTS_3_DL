@@ -1,1 +1,21 @@
+# Scenario 3 – Left Turn (CRAT-Pred Deep Learning)
+# Vehicle moves straight and performs a left turn.
+
+Duration: 12 s
+ADE (per timestep): 0.01731 m
+MR (per timestep): 0.00 %
+ADE (per second): 0.02380 m
+MR (per second): 0.00 %
+
+Comments:
+- Slightly higher ADE compared to right turn due to complex curvature.
+- The deep model still maintains near-perfect tracking of the true trajectory.
+- Demonstrates CRAT-Pred’s robustness across varied maneuvers.
+
+Files:
+• Image: results_dl/scenario3_leftturn/carla_view.png
+• Plot: results_dl/scenario3_leftturn/gt_vs_pred.png
+• CSV: results_dl/scenario3_leftturn/trajectories.csv
+
+[END]
 
