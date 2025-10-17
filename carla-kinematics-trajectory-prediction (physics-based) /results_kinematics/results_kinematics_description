@@ -1,7 +1,7 @@
 # Method: Kinematics
 # Project: Diploma_thesis
-# Chapter: 5.1 – Αποτελέσματα της Μεθόδου Πρόβλεψης μέσω Κινηματικών Εξισώσεων
-# Author: Ευάγγελος Παπαϊωάννου
+# Chapter: 5.1
+
 # Description:
 # This file summarizes the experimental results of the kinematics-based vehicle trajectory prediction method.
 # Each scenario was executed in the CARLA simulator and includes visual, numerical, and tabular evaluation results.
@@ -27,7 +27,7 @@ Scenarios = 3 (Left Turn, Right Turn, Straight Line)
    - minADE (per second): 0.6599 m
    - MR (per second): 0.00 %
    - Files:
-       • Image: results/kinematics/scenario1_leftturn/carla_view.png
+       • Image: results_kinematics/1_leftturn/carla_view.png
        • Plot: results/kinematics/scenario1_leftturn/gt_vs_pred.png
        • CSV: results/kinematics/scenario1_leftturn/trajectories.csv
 
