@@ -1,1 +1,66 @@
+# Method: Kinematics
+# Project: Diploma_thesis
+# Chapter: 5.1 – Αποτελέσματα της Μεθόδου Πρόβλεψης μέσω Κινηματικών Εξισώσεων
+# Author: Ευάγγελος Παπαϊωάννου
+# Description:
+# This file summarizes the experimental results of the kinematics-based vehicle trajectory prediction method.
+# Each scenario was executed in the CARLA simulator and includes visual, numerical, and tabular evaluation results.
+# For every scenario, the following outputs are available:
+#   1) One CARLA image showing the predicted and actual vehicle trajectories.
+#   2) One plot (PNG) comparing predicted vs ground truth trajectories.
+#   3) One CSV file containing detailed metrics per timestep and per second.
+
+[EXPERIMENTAL_SETUP]
+Simulator = CARLA
+Prediction_Method = Kinematic Equations
+Prediction_Horizon = 3.0 s
+Sampling_Interval = 0.05 s
+Evaluation_Metrics = Average Displacement Error (ADE), Miss Rate (MR)
+Scenarios = 3 (Left Turn, Right Turn, Straight Line)
+
+[SCENARIOS]
+1) Scenario_1_LeftTurn
+   - Description: Vehicle follows a left-turn curve at moderate speed.
+   - Duration: 18 s
+   - minADE (per timestep): 1.2834 m
+   - MR (per timestep): 40.00 %
+   - minADE (per second): 0.6599 m
+   - MR (per second): 0.00 %
+   - Files:
+       • Image: results/kinematics/scenario1_leftturn/carla_view.png
+       • Plot: results/kinematics/scenario1_leftturn/gt_vs_pred.png
+       • CSV: results/kinematics/scenario1_leftturn/trajectories.csv
+
+2) Scenario_2_RightTurn
+   - Description: Vehicle performs a right-turn trajectory under similar conditions.
+   - Duration: 12 s
+   - minADE (per timestep): 1.3447 m
+   - MR (per timestep): 43.70 %
+   - minADE (per second): 0.7142 m
+   - MR (per second): 0.00 %
+   - Files:
+       • Image: results/kinematics/scenario2_rightturn/carla_view.png
+       • Plot: results/kinematics/scenario2_rightturn/gt_vs_pred.png
+       • CSV: results/kinematics/scenario2_rightturn/trajectories.csv
+
+3) Scenario_3_StraightLine
+   - Description: Vehicle moves along a straight road section with constant velocity.
+   - Duration: 12 s
+   - minADE (per timestep): 1.6724 m
+   - MR (per timestep): 39.64 %
+   - minADE (per second): 0.5970 m
+   - MR (per second): 0.00 %
+   - Files:
+       • Image: results/kinematics/scenario3_straightline/carla_view.png
+       • Plot: results/kinematics/scenario3_straightline/gt_vs_pred.png
+       • CSV: results/kinematics/scenario3_straightline/trajectories.csv
+
+[SUMMARY]
+Overall_Observations:
+- The kinematic method provides reliable real-time predictions for simple, low-dynamic scenarios.
+- Accuracy decreases in curved trajectories due to limited modeling of non-linear motion.
+- Straight-line motion yields the lowest mean error (minADE = 0.5970 m, MR = 0.00%).
+- These results serve as a classical baseline for comparison with the deep learning method (CRAT-Pred).
+
+[END]
 
