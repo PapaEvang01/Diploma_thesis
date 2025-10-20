@@ -18,42 +18,35 @@ Sampling_Interval = 0.05 s
 Evaluation_Metrics = Average Displacement Error (ADE), Miss Rate (MR)
 Scenarios = 3 (Straight, Right Turn, Left Turn)
 
-[SCENARIOS]
-1) Scenario_1_Straight
-   - Description: Vehicle moves straight with minor lane maneuvers.
-   - Duration: 18 s
-   - ADE (per timestep): 0.01394 m
-   - MR (per timestep): 0.00 %
-   - ADE (per second): 0.01824 m
-   - MR (per second): 0.00 %
-   - Files:
-       • Image: results_dl/1_straight/carla_view.png
-       • Plot: results_dl/1_straight/gt_vs_pred.png
-       • CSV: results_dl/1_straight/trajectories.csv
-
-2) Scenario_2_RightTurn
-   - Description: Vehicle moves straight and performs a right turn.
-   - Duration: 12 s
-   - ADE (per timestep): 0.01562 m
-   - MR (per timestep): 0.00 %
-   - ADE (per second): 0.02111 m
-   - MR (per second): 0.00 %
-   - Files:
-       • Image: results_dl/scenario2_rightturn/carla_view.png
-       • Plot: results_dl/scenario2_rightturn/gt_vs_pred.png
-       • CSV: results_dl/scenario2_rightturn/trajectories.csv
-
-3) Scenario_3_LeftTurn
-   - Description: Vehicle moves straight and performs a left turn.
-   - Duration: 12 s
-   - ADE (per timestep): 0.01731 m
-   - MR (per timestep): 0.00 %
-   - ADE (per second): 0.02380 m
-   - MR (per second): 0.00 %
-   - Files:
-       • Image: results_dl/scenario3_leftturn/carla_view.png
-       • Plot: results_dl/scenario3_leftturn/gt_vs_pred.png
-       • CSV: results_dl/scenario3_leftturn/trajectories.csv
+--------------------------------------------------
+Project Structure
+--------------------------------------------------
+crat-pred-trajectories-in-carla/
+├── src/
+│   ├── crat_pred_movement_predictor.py       # Main real-time trajectory prediction script
+│   ├── model_loader.py                       # Loads CRAT-Pred model and checkpoint
+│   └── npc_spawner.py                        # Spawns NPC vehicles in CARLA
+├── results_dl/
+│   ├── scenario1_straight/
+│   │   ├── gt_vs_pred_vehicle_24.csv          # Ground truth vs predicted positions
+│   │   ├── metrics_per_timestep_vehicle_24.csv # ADE/FDE per timestep
+│   │   ├── trajectory_plot.png                # GT vs predicted trajectory plot
+│   │   └── RESULTS_scenario1_DL.txt           # Scenario 1 summary and observations
+│   ├── scenario2_rightturn/
+│   │   ├── gt_vs_pred_vehicle_25.csv
+│   │   ├── img2_cratpred.png
+│   │   ├── metrics_per_timestep_vehicle_25.csv
+│   │   ├── trajectory_plot.png
+│   │   └── RESULTS_scenario2_DL.txt
+│   ├── scenario3_leftturn/
+│   │   ├── gt_vs_pred_vehicle_26.csv
+│   │   ├── img3_cratpred.png
+│   │   ├── metrics_per_timestep_vehicle_26.csv
+│   │   ├── trajectory_plot.png
+│   │   └── RESULTS_scenario3_DL.txt
+│   └── results_dl_description.txt             # Global description of all DL scenarios
+├── requirements.txt                           # Python dependencies
+└── README.txt                                 # Project documentation
 
 [SUMMARY]
 Overall_Observations:
