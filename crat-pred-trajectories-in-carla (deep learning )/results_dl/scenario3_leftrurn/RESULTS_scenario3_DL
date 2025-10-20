@@ -8,14 +8,15 @@ ADE (per second): 0.02380 m
 MR (per second): 0.00 %
 
 Comments:
-- Slightly higher ADE compared to right turn due to complex curvature.
-- The deep model still maintains near-perfect tracking of the true trajectory.
-- Demonstrates CRAT-Pred’s robustness across varied maneuvers.
+- Slightly higher ADE compared to the right turn due to increased curvature complexity.
+- The deep learning model maintains near-perfect tracking of ground-truth trajectories.
+- Demonstrates CRAT-Pred’s robustness and adaptability across different maneuvers.
 
 Files:
-• Image: results_dl/scenario3_leftturn/carla_view.png
-• Plot: results_dl/scenario3_leftturn/gt_vs_pred.png
-• CSV: results_dl/scenario3_leftturn/trajectories.csv
+• GT vs Predicted CSV: results_dl/scenario3_leftturn/gt_vs_pred_vehicle_26.csv
+• Image: results_dl/scenario3_leftturn/img3_cratpred.png
+• Metrics per Timestep: results_dl/scenario3_leftturn/metrics_per_timestep_vehicle_26.csv
+• Plot: results_dl/scenario3_leftturn/trajectory_plot.png
+• Summary: results_dl/scenario3_leftturn/RESULTS_scenario3_DL.txt
 
 [END]
-

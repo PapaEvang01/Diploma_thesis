@@ -8,14 +8,14 @@ ADE (per second): 0.01824 m
 MR (per second): 0.00 %
 
 Comments:
-- The model predicts the vehicle trajectory with extremely high precision.
-- The straight path allows consistent prediction with negligible spatial error.
-- Ideal alignment between ground truth and predicted points throughout the simulation.
+- The CRAT-Pred model predicts the vehicle trajectory with extremely high precision.
+- The straight path allows consistent predictions with negligible spatial deviation.
+- Near-perfect alignment is observed between predicted and ground-truth positions throughout the simulation.
 
 Files:
-• Image: results_dl/scenario1_straight/carla_view.png
-• Plot: results_dl/scenario1_straight/gt_vs_pred.png
-• CSV: results_dl/scenario1_straight/trajectories.csv
+• GT vs Predicted CSV: results_dl/scenario1_straight/gt_vs_pred_vehicle_24.csv
+• Metrics per Timestep: results_dl/scenario1_straight/metrics_per_timestep_vehicle_24.csv
+• Plot: results_dl/scenario1_straight/trajectory_plot.png
+• Summary: results_dl/scenario1_straight/RESULTS_scenario1_DL.txt
 
 [END]
-

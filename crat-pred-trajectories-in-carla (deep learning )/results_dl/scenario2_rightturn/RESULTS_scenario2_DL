@@ -8,14 +8,15 @@ ADE (per second): 0.02111 m
 MR (per second): 0.00 %
 
 Comments:
-- The model maintains excellent trajectory prediction even during turning.
-- Attention and GNN components capture spatial dependencies effectively.
-- Zero miss rate demonstrates strong mode selection and accurate curvature prediction.
+- The CRAT-Pred model maintains excellent trajectory prediction accuracy even during turning maneuvers.
+- Graph-based and attention mechanisms effectively capture spatial dependencies between agents.
+- The zero miss rate confirms robust mode selection and precise curvature tracking.
 
 Files:
-• Image: results_dl/scenario2_rightturn/carla_view.png
-• Plot: results_dl/scenario2_rightturn/gt_vs_pred.png
-• CSV: results_dl/scenario2_rightturn/trajectories.csv
+• GT vs Predicted CSV: results_dl/scenario2_rightturn/gt_vs_pred_vehicle_25.csv
+• Image: results_dl/scenario2_rightturn/img2_cratpred.png
+• Metrics per Timestep: results_dl/scenario2_rightturn/metrics_per_timestep_vehicle_25.csv
+• Plot: results_dl/scenario2_rightturn/trajectory_plot.png
+• Summary: results_dl/scenario2_rightturn/RESULTS_scenario2_DL.txt
 
 [END]
-
