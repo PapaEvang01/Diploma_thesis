@@ -18,15 +18,32 @@ and stored in the results/ folder.
 --------------------------------------------------
 Folder Structure
 --------------------------------------------------
-cratpred_project/
+crat-pred-trajectories-in-carla/
 ├── src/
-│   ├── crat_pred_movement_predictor.py   # Main real-time prediction script
-│   ├── model_loader.py                   # Loads CRAT-Pred from best checkpoint
-│   ├── npc_spawner.py                    # Spawns random NPC vehicles in CARLA
-│   ├── requirements.txt                  # Python dependencies
-│   └── README.txt
-├── results/
-│   ├── *.csv, *.png, *.csv               # Output metrics, predictions, and plots (created at runtime)
+│   ├── crat_pred_movement_predictor.py     # Main real-time trajectory prediction script
+│   ├── model_loader.py                     # Loads CRAT-Pred model and checkpoint
+│   └── npc_spawner.py                      # Spawns NPC vehicles in CARLA
+├── results_dl/
+│   ├── scenario1_straight/
+│   │   ├── gt_vs_pred_vehicle_24.csv        # Ground truth vs predicted positions
+│   │   ├── metrics_per_timestep_vehicle_24.csv # ADE/FDE metrics per timestep
+│   │   ├── trajectory_plot.png              # GT vs predicted trajectory plot
+│   │   └── RESULTS_scenario1_DL.txt         # Scenario 1 summary and observations
+│   ├── scenario2_rightturn/
+│   │   ├── gt_vs_pred_vehicle_25.csv
+│   │   ├── img2_cratpred.png
+│   │   ├── metrics_per_timestep_vehicle_25.csv
+│   │   ├── trajectory_plot.png
+│   │   └── RESULTS_scenario2_DL.txt
+│   ├── scenario3_leftturn/
+│   │   ├── gt_vs_pred_vehicle_26.csv
+│   │   ├── img3_cratpred.png
+│   │   ├── metrics_per_timestep_vehicle_26.csv
+│   │   ├── trajectory_plot.png
+│   │   └── RESULTS_scenario3_DL.txt
+│   └── results_dl_description.txt           # Global description of all DL scenarios
+├── requirements.txt                         # Python dependencies
+└── README.txt                               # Project documentation
 
 --------------------------------------------------
 Simulation Scenarios and Results
@@ -41,10 +58,10 @@ Three simulation scenarios were executed in the CARLA environment to evaluate th
    - ADE (per second): 0.01824 m
    - MR (per second): 0.00 %
    - Files:
-       • Image: results/crat_pred/scenario1_straight/carla_view.png
-       • Plot: results/crat_pred/scenario1_straight/gt_vs_pred.png
-       • CSV: results/crat_pred/scenario1_straight/trajectories.csv
-       • Summary: results/crat_pred_scenario1.txt
+       • GT vs Predicted CSV: results_dl/scenario1_straight/gt_vs_pred_vehicle_24.csv
+       • Metrics per Timestep: results_dl/scenario1_straight/metrics_per_timestep_vehicle_24.csv
+       • Plot: results_dl/scenario1_straight/trajectory_plot.png
+       • Summary: results_dl/scenario1_straight/RESULTS_scenario1_DL.txt
 
 2) Scenario 2 – Right Turn
    - Description: Vehicle moves straight and performs a right turn.
@@ -54,10 +71,11 @@ Three simulation scenarios were executed in the CARLA environment to evaluate th
    - ADE (per second): 0.02111 m
    - MR (per second): 0.00 %
    - Files:
-       • Image: results/crat_pred/scenario2_rightturn/carla_view.png
-       • Plot: results/crat_pred/scenario2_rightturn/gt_vs_pred.png
-       • CSV: results/crat_pred/scenario2_rightturn/trajectories.csv
-       • Summary: results/crat_pred_scenario2.txt
+       • GT vs Predicted CSV: results_dl/scenario2_rightturn/gt_vs_pred_vehicle_25.csv
+       • Image: results_dl/scenario2_rightturn/img2_cratpred.png
+       • Metrics per Timestep: results_dl/scenario2_rightturn/metrics_per_timestep_vehicle_25.csv
+       • Plot: results_dl/scenario2_rightturn/trajectory_plot.png
+       • Summary: results_dl/scenario2_rightturn/RESULTS_scenario2_DL.txt
 
 3) Scenario 3 – Left Turn
    - Description: Vehicle moves straight and performs a left turn.
@@ -67,10 +85,11 @@ Three simulation scenarios were executed in the CARLA environment to evaluate th
    - ADE (per second): 0.02380 m
    - MR (per second): 0.00 %
    - Files:
-       • Image: results/crat_pred/scenario3_leftturn/carla_view.png
-       • Plot: results/crat_pred/scenario3_leftturn/gt_vs_pred.png
-       • CSV: results/crat_pred/scenario3_leftturn/trajectories.csv
-       • Summary: results/crat_pred_scenario3.txt
+       • GT vs Predicted CSV: results_dl/scenario3_leftturn/gt_vs_pred_vehicle_26.csv
+       • Image: results_dl/scenario3_leftturn/img3_cratpred.png
+       • Metrics per Timestep: results_dl/scenario3_leftturn/metrics_per_timestep_vehicle_26.csv
+       • Plot: results_dl/scenario3_leftturn/trajectory_plot.png
+       • Summary: results_dl/scenario3_leftturn/RESULTS_scenario3_DL.txt
 
 --------------------------------------------------
 Output Contents
